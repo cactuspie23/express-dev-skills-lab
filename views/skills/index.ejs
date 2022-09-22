@@ -12,9 +12,15 @@
   <ul> 
     <% skills.forEach(skill => { %>
       <li>
-          <a href="/skills/<%= skill._id %>"><%= skill.text%></a>
-          -
-          <%= skill.done ? 'Learned' : 'Not Learned' %>
+        <form 
+          action="/skills/<%= skill._id %>?_method=DELETE"  
+          class="delete-form"
+          method="post">
+          <button type="submit">X</button>
+        </form>
+        <a href="/skills/<%= skill._id %>"><%= skill.text%></a>
+        -
+        <%= skill.done ? 'Learned' : 'Not Learned' %>
       </li>
     <% }) %>
   </ul>
